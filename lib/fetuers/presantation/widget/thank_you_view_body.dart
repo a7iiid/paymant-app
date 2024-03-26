@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payment/constants/assets.dart';
 
+import 'dash_widget.dart';
+
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
 
@@ -38,7 +40,7 @@ class ThankYouViewBody extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            top: -MediaQuery.sizeOf(context).height * .05,
+            top: -40,
             child: CircleAvatar(
               radius: 50,
               backgroundColor: Color(0xFFD9D9D9),
@@ -51,7 +53,8 @@ class ThankYouViewBody extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
+          const DashWidget()
         ],
       ),
     );
