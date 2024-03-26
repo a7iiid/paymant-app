@@ -36,17 +36,20 @@ class ThankYouViewBody extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: MediaQuery.sizeOf(context).width * .35,
-            top: -MediaQuery.sizeOf(context).height * .04,
-            child: Container(
-              padding: EdgeInsets.all(8),
-              width: 80,
-              height: 80,
-              decoration: const ShapeDecoration(
-                color: Color(0xFF34A853),
-                shape: OvalBorder(),
+            left: 0,
+            right: 0,
+            top: -MediaQuery.sizeOf(context).height * .05,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundColor: Color(0xFFD9D9D9),
+              child: CircleAvatar(
+                radius: 40,
+                backgroundColor: Color(0xff34A853),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(Assets.imagesSuccess),
+                ),
               ),
-              child: SvgPicture.asset(Assets.imagesSuccess),
             ),
           )
         ],
