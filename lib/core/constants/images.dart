@@ -12,5 +12,9 @@ class Assets {
   /// Assets for imagesPaypal
   /// assets/images/paypal.svg
   static const String imagesPaypal = "assets/images/paypal.svg";
+
+  /// Assets for imagesSuccess
+  /// assets/images/success.svg
+  static const String imagesSuccess = "assets/images/success.svg";
 }
 
