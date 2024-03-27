@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/assets.dart';
-import '../model/paymant_model.dart';
-import '../view/paymant_details_view.dart';
+import '../../../../constants/assets.dart';
+import '../../model/paymant_model.dart';
+import '../../view/paymant_details_view.dart';
 import 'pymant_item_selected.dart';
 
 class PymantSelected extends StatefulWidget {

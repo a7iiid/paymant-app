@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payment/constants/assets.dart';
 import 'package:payment/core/utlis/appStyle.dart';
-import 'package:payment/fetuers/presantation/widget/totle_prise.dart';
+import 'package:payment/fetuers/presantation/widget/thank%20you/totle_prise.dart';
 
 import 'dash_widget.dart';
 import 'info_payment.dart';

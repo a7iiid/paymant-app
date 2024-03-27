@@ -8,8 +8,8 @@ import 'package:payment/fetuers/presantation/model/paymant_model.dart';
 import 'package:payment/fetuers/presantation/view/thank_you_view.dart';
 
 import '../widget/custom_bottom.dart';
-import '../widget/custom_cridet_card.dart';
-import '../widget/paymantSelected.dart';
+import '../widget/paymant details/custom_cridet_card.dart';
+import '../widget/paymant details/paymantSelected.dart';
 
 class PaymentDetails extends StatefulWidget {
   PaymentDetails({super.key});
