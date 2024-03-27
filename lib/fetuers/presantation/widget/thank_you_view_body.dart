@@ -1,9 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payment/constants/assets.dart';
+import 'package:payment/core/utlis/appStyle.dart';
+import 'package:payment/fetuers/presantation/widget/totle_prise.dart';
 
 import 'dash_widget.dart';
+import 'info_payment.dart';
+import 'ordar_info.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
@@ -54,7 +59,12 @@ class ThankYouViewBody extends StatelessWidget {
               ),
             ),
           ),
-          const DashWidget()
+          const DashWidget(),
+          const Positioned(
+            left: 0,
+            right: 0,
+            child: infoPayment(),
+          ),
         ],
       ),
     );

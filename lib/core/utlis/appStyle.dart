@@ -37,4 +37,11 @@ class AppStyle {
     fontWeight: FontWeight.w600,
     height: 0,
   );
+  static TextStyle regler16 = TextStyle(
+    color: Colors.black.withOpacity(0.699999988079071),
+    fontSize: 16,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    height: 0,
+  );
 }

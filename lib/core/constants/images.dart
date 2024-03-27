@@ -9,6 +9,10 @@ class Assets {
   /// assets/images/card.svg
   static const String imagesCard = "assets/images/card.svg";
 
+  /// Assets for imagesMastercard
+  /// assets/images/mastercard.svg
+  static const String imagesMastercard = "assets/images/mastercard.svg";
+
   /// Assets for imagesPaypal
   /// assets/images/paypal.svg
   static const String imagesPaypal = "assets/images/paypal.svg";
