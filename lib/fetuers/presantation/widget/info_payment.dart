@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:payment/core/constants/images.dart';
 import 'package:payment/core/utlis/appStyle.dart';
 import 'package:payment/fetuers/presantation/widget/ordar_info.dart';
@@ -36,6 +37,34 @@ class infoPayment extends StatelessWidget {
           TotlePrise(title: 'Totle', value: r'$89'),
           const SizedBox(height: 30),
           paymantMethodInfo(),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * .1,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(
+                FontAwesomeIcons.barcode,
+                size: 80,
+              ),
+              Container(
+                width: 113,
+                height: 58,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1.50, color: Color(0xFF34A853)),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: Center(
+                  child: Text('PAID',
+                      textAlign: TextAlign.center,
+                      style:
+                          AppStyle.bold24.copyWith(color: Color(0xFF34A853))),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
