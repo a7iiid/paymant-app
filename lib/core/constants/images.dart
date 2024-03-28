@@ -1,6 +1,6 @@
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesApplePay
   /// assets/images/applePay.svg
   static const String imagesApplePay = "assets/images/applePay.svg";
@@ -21,4 +21,3 @@ class Assets {
   /// assets/images/success.svg
   static const String imagesSuccess = "assets/images/success.svg";
 }
-
