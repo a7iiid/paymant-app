@@ -4,6 +4,7 @@ import 'package:payment/core/utlis/ApiSeirves.dart';
 import 'package:payment/core/utlis/apiKey.dart';
 import 'package:payment/fetuers/manger/models/payment_input_intint_model.dart';
 import 'package:payment/fetuers/manger/models/payment_intint_model/payment_intint_model.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeSeirves {
   final ApiSeirves apiSeirves = ApiSeirves();
@@ -15,5 +16,27 @@ class StripeSeirves {
         token: ApiKey.SecretKeyStripe);
     var paymentInintModel = PaymentIntintModel.fromJson(response.data);
     return paymentInintModel;
+  }
+
+  Future initPaymentSheet({required String paymentIntintClintSecret}) async {
+    await Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: SetupPaymentSheetParameters(
+        paymentIntentClientSecret: paymentIntintClintSecret,
+        merchantDisplayName: "PTMA",
+      ),
+    );
+  }
+
+  Future displayPaymentSheet() async {
+    Stripe.instance.presentPaymentSheet();
+  }
+
+  Future makePayment(
+      {required PaymentInputIntantModel paymentInputIntantModel}) async {
+    var paymentIntintModel = await createPaymentIntint(paymentInputIntantModel);
+
+    await initPaymentSheet(
+        paymentIntintClintSecret: paymentIntintModel.clientSecret!);
+    await displayPaymentSheet();
   }
 }
