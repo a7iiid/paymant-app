@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:payment/core/utlis/ApiSeirves.dart';
 import 'package:payment/core/utlis/apiKey.dart';
-import 'package:payment/fetuers/manger/models/payment_input_intint_model.dart';
-import 'package:payment/fetuers/manger/models/payment_intint_model/payment_intint_model.dart';
+import 'package:payment/fetuers/data/models/payment_input_intint_model.dart';
+import 'package:payment/fetuers/data/models/payment_intint_model/payment_intint_model.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeSeirves {
