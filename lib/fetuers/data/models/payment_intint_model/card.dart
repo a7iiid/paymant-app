@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Card {
   dynamic installments;
   dynamic mandateOptions;
@@ -13,29 +11,17 @@ class Card {
     this.requestThreeDSecure,
   });
 
-  factory Card.fromMap(Map<String, dynamic> data) => Card(
-        installments: data['installments'] as dynamic,
-        mandateOptions: data['mandate_options'] as dynamic,
-        network: data['network'] as dynamic,
-        requestThreeDSecure: data['request_three_d_secure'] as String?,
+  factory Card.fromJson(Map<String, dynamic> json) => Card(
+        installments: json['installments'] as dynamic,
+        mandateOptions: json['mandate_options'] as dynamic,
+        network: json['network'] as dynamic,
+        requestThreeDSecure: json['request_three_d_secure'] as String?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'installments': installments,
         'mandate_options': mandateOptions,
         'network': network,
         'request_three_d_secure': requestThreeDSecure,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Card].
-  factory Card.fromJson(String data) {
-    return Card.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Card] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

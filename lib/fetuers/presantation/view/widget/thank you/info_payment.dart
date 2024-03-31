@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:payment/core/constants/images.dart';
 import 'package:payment/core/utlis/appStyle.dart';
-import 'package:payment/fetuers/presantation/widget/thank%20you/ordar_info.dart';
-import 'package:payment/fetuers/presantation/widget/thank%20you/totle_prise.dart';
+import 'package:payment/fetuers/presantation/view/widget/thank%20you/ordar_info.dart';
+import 'package:payment/fetuers/presantation/view/widget/thank%20you/totle_prise.dart';
 
 import 'paymant_method_info.dart';
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:payment/core/utlis/ApiSeirves.dart';
 import 'package:payment/core/utlis/apiKey.dart';
 import 'package:payment/fetuers/data/models/payment_input_intint_model.dart';
@@ -11,9 +12,11 @@ class StripeSeirves {
   Future<PaymentIntintModel> createPaymentIntint(
       PaymentInputIntantModel paymentInputIntantModel) async {
     var response = await apiSeirves.post(
-        url: 'https://api.stripe.com/v1/payment_intents',
-        body: paymentInputIntantModel.toJson(),
-        token: ApiKey.SecretKeyStripe);
+      url: 'https://api.stripe.com/v1/payment_intents',
+      body: paymentInputIntantModel.toJson(),
+      token: ApiKey.SecretKeyStripe,
+      contentType: Headers.formUrlEncodedContentType,
+    );
     var paymentInintModel = PaymentIntintModel.fromJson(response.data);
     return paymentInintModel;
   }
@@ -28,7 +31,7 @@ class StripeSeirves {
   }
 
   Future displayPaymentSheet() async {
-    Stripe.instance.presentPaymentSheet();
+    await Stripe.instance.presentPaymentSheet();
   }
 
   Future makePayment(

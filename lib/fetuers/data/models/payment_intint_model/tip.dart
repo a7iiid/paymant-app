@@ -1,17 +1,23 @@
 class Tip {
-  Tip();
+  final String? id;
+  final String? object;
+  final int? amount;
 
+  Tip({
+    this.id,
+    this.object,
+    this.amount,
+  });
   factory Tip.fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError('Tip.fromJson($json) is not implemented');
+    return Tip(
+      id: json['id'] as String?,
+      object: json['object'] as String?,
+      amount: json['amount'] as int?,
+    );
   }
 
   Map<String, dynamic> toJson() {
     // TODO: implement toJson
     throw UnimplementedError();
   }
-
-  static fromMap(Map<String, dynamic> data) {}
-
-  toMap() {}
 }

@@ -1,19 +1,26 @@
 import 'package:dio/dio.dart';
 
 class ApiSeirves {
-  Dio dio = new Dio();
-  Future<Response> post(
-      {required url,
-      required body,
-      required String token,
-      String? countantType}) async {
+  Dio dio = Dio();
+
+  Future<Response> post({
+    required String url,
+    required dynamic body,
+    required String token,
+    String? contentType,
+  }) async {
     try {
       Response response = await dio.post(
         url,
         data: body,
         options: Options(
-          contentType: countantType,
-          headers: {'Authorization': "Bearer $token"},
+          contentType: contentType,
+          headers: {
+            'Authorization': "Bearer $token",
+          },
+          validateStatus: (status) {
+            return status! < 500;
+          },
         ),
       );
       return response;

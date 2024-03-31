@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'amount_details.dart';
 import 'automatic_payment_methods.dart';
 import 'metadata.dart';
@@ -33,7 +31,7 @@ class PaymentIntintModel {
   dynamic onBehalfOf;
   dynamic paymentMethod;
   PaymentMethodOptions? paymentMethodOptions;
-  List<String>? paymentMethodTypes;
+  List<dynamic>? paymentMethodTypes;
   dynamic processing;
   dynamic receiptEmail;
   dynamic review;
@@ -88,71 +86,71 @@ class PaymentIntintModel {
     this.transferGroup,
   });
 
-  factory PaymentIntintModel.fromMap(Map<String, dynamic> data) {
+  factory PaymentIntintModel.fromJson(Map<dynamic, dynamic> json) {
     return PaymentIntintModel(
-      id: data['id'] as String?,
-      object: data['object'] as String?,
-      amount: data['amount'] as int?,
-      amountCapturable: data['amount_capturable'] as int?,
-      amountDetails: data['amount_details'] == null
+      id: json['id'] as String?,
+      object: json['object'] as String?,
+      amount: json['amount'] as int?,
+      amountCapturable: json['amount_capturable'] as int?,
+      amountDetails: json['amount_details'] == null
           ? null
-          : AmountDetails.fromMap(
-              data['amount_details'] as Map<String, dynamic>),
-      amountReceived: data['amount_received'] as int?,
-      application: data['application'] as dynamic,
-      applicationFeeAmount: data['application_fee_amount'] as dynamic,
-      automaticPaymentMethods: data['automatic_payment_methods'] == null
+          : AmountDetails.fromJson(
+              json['amount_details'] as Map<String, dynamic>),
+      amountReceived: json['amount_received'] as int?,
+      application: json['application'] as dynamic,
+      applicationFeeAmount: json['application_fee_amount'] as dynamic,
+      automaticPaymentMethods: json['automatic_payment_methods'] == null
           ? null
-          : AutomaticPaymentMethods.fromMap(
-              data['automatic_payment_methods'] as Map<String, dynamic>),
-      canceledAt: data['canceled_at'] as dynamic,
-      cancellationReason: data['cancellation_reason'] as dynamic,
-      captureMethod: data['capture_method'] as String?,
-      clientSecret: data['client_secret'] as String?,
-      confirmationMethod: data['confirmation_method'] as String?,
-      created: data['created'] as int?,
-      currency: data['currency'] as String?,
-      customer: data['customer'] as dynamic,
-      description: data['description'] as dynamic,
-      invoice: data['invoice'] as dynamic,
-      lastPaymentError: data['last_payment_error'] as dynamic,
-      latestCharge: data['latest_charge'] as dynamic,
-      livemode: data['livemode'] as bool?,
-      metadata: data['metadata'] == null
+          : AutomaticPaymentMethods.fromJson(
+              json['automatic_payment_methods'] as Map<String, dynamic>),
+      canceledAt: json['canceled_at'] as dynamic,
+      cancellationReason: json['cancellation_reason'] as dynamic,
+      captureMethod: json['capture_method'] as String?,
+      clientSecret: json['client_secret'] as String?,
+      confirmationMethod: json['confirmation_method'] as String?,
+      created: json['created'] as int?,
+      currency: json['currency'] as String?,
+      customer: json['customer'] as dynamic,
+      description: json['description'] as dynamic,
+      invoice: json['invoice'] as dynamic,
+      lastPaymentError: json['last_payment_error'] as dynamic,
+      latestCharge: json['latest_charge'] as dynamic,
+      livemode: json['livemode'] as bool?,
+      metadata: json['metadata'] == null
           ? null
-          : Metadata.fromMap(data['metadata'] as Map<String, dynamic>),
-      nextAction: data['next_action'] as dynamic,
-      onBehalfOf: data['on_behalf_of'] as dynamic,
-      paymentMethod: data['payment_method'] as dynamic,
-      paymentMethodOptions: data['payment_method_options'] == null
+          : Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
+      nextAction: json['next_action'] as dynamic,
+      onBehalfOf: json['on_behalf_of'] as dynamic,
+      paymentMethod: json['payment_method'] as dynamic,
+      paymentMethodOptions: json['payment_method_options'] == null
           ? null
-          : PaymentMethodOptions.fromMap(
-              data['payment_method_options'] as Map<String, dynamic>),
-      paymentMethodTypes: data['payment_method_types'] as List<String>?,
-      processing: data['processing'] as dynamic,
-      receiptEmail: data['receipt_email'] as dynamic,
-      review: data['review'] as dynamic,
-      setupFutureUsage: data['setup_future_usage'] as dynamic,
-      shipping: data['shipping'] as dynamic,
-      source: data['source'] as dynamic,
-      statementDescriptor: data['statement_descriptor'] as dynamic,
-      statementDescriptorSuffix: data['statement_descriptor_suffix'] as dynamic,
-      status: data['status'] as String?,
-      transferData: data['transfer_data'] as dynamic,
-      transferGroup: data['transfer_group'] as dynamic,
+          : PaymentMethodOptions.fromJson(
+              json['payment_method_options'] as Map<String, dynamic>),
+      paymentMethodTypes: json['payment_method_types'] as List<dynamic>?,
+      processing: json['processing'] as dynamic,
+      receiptEmail: json['receipt_email'] as dynamic,
+      review: json['review'] as dynamic,
+      setupFutureUsage: json['setup_future_usage'] as dynamic,
+      shipping: json['shipping'] as dynamic,
+      source: json['source'] as dynamic,
+      statementDescriptor: json['statement_descriptor'] as dynamic,
+      statementDescriptorSuffix: json['statement_descriptor_suffix'] as dynamic,
+      status: json['status'] as String?,
+      transferData: json['transfer_data'] as dynamic,
+      transferGroup: json['transfer_group'] as dynamic,
     );
   }
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'id': id,
         'object': object,
         'amount': amount,
         'amount_capturable': amountCapturable,
-        'amount_details': amountDetails?.toMap(),
+        'amount_details': amountDetails?.toJson(),
         'amount_received': amountReceived,
         'application': application,
         'application_fee_amount': applicationFeeAmount,
-        'automatic_payment_methods': automaticPaymentMethods?.toMap(),
+        'automatic_payment_methods': automaticPaymentMethods?.toJson(),
         'canceled_at': canceledAt,
         'cancellation_reason': cancellationReason,
         'capture_method': captureMethod,
@@ -166,11 +164,11 @@ class PaymentIntintModel {
         'last_payment_error': lastPaymentError,
         'latest_charge': latestCharge,
         'livemode': livemode,
-        'metadata': metadata?.toMap(),
+        'metadata': metadata?.toJson(),
         'next_action': nextAction,
         'on_behalf_of': onBehalfOf,
         'payment_method': paymentMethod,
-        'payment_method_options': paymentMethodOptions?.toMap(),
+        'payment_method_options': paymentMethodOptions?.toJson(),
         'payment_method_types': paymentMethodTypes,
         'processing': processing,
         'receipt_email': receiptEmail,
@@ -184,17 +182,4 @@ class PaymentIntintModel {
         'transfer_data': transferData,
         'transfer_group': transferGroup,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [PaymentIntintModel].
-  factory PaymentIntintModel.fromJson(String data) {
-    return PaymentIntintModel.fromMap(
-        json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [PaymentIntintModel] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

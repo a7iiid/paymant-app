@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'tip.dart';
 
 class AmountDetails {
@@ -7,25 +5,13 @@ class AmountDetails {
 
   AmountDetails({this.tip});
 
-  factory AmountDetails.fromMap(Map<String, dynamic> data) => AmountDetails(
-        tip: data['tip'] == null
+  factory AmountDetails.fromJson(Map<String, dynamic> json) => AmountDetails(
+        tip: json['tip'] == null
             ? null
-            : Tip.fromMap(data['tip'] as Map<String, dynamic>),
+            : Tip.fromJson(json['tip'] as Map<String, dynamic>),
       );
 
-  Map<String, dynamic> toMap() => {
-        'tip': tip?.toMap(),
+  Map<String, dynamic> toJson() => {
+        'tip': tip?.toJson(),
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [AmountDetails].
-  factory AmountDetails.fromJson(String data) {
-    return AmountDetails.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [AmountDetails] to a JSON string.
-  String toJson() => json.encode(toMap());
 }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'card.dart';
 import 'link.dart';
 
@@ -9,32 +7,19 @@ class PaymentMethodOptions {
 
   PaymentMethodOptions({this.card, this.link});
 
-  factory PaymentMethodOptions.fromMap(Map<String, dynamic> data) {
+  factory PaymentMethodOptions.fromJson(Map<String, dynamic> json) {
     return PaymentMethodOptions(
-      card: data['card'] == null
+      card: json['card'] == null
           ? null
-          : Card.fromMap(data['card'] as Map<String, dynamic>),
-      link: data['link'] == null
+          : Card.fromJson(json['card'] as Map<String, dynamic>),
+      link: json['link'] == null
           ? null
-          : Link.fromMap(data['link'] as Map<String, dynamic>),
+          : Link.fromJson(json['link'] as Map<String, dynamic>),
     );
   }
 
-  Map<String, dynamic> toMap() => {
-        'card': card?.toMap(),
-        'link': link?.toMap(),
+  Map<String, dynamic> toJson() => {
+        'card': card?.toJson(),
+        'link': link?.toJson(),
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [PaymentMethodOptions].
-  factory PaymentMethodOptions.fromJson(String data) {
-    return PaymentMethodOptions.fromMap(
-        json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [PaymentMethodOptions] to a JSON string.
-  String toJson() => json.encode(toMap());
 }
